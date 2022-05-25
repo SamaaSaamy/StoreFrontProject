@@ -53,3 +53,30 @@ SALT_ROUNDS=10
 
 TOKEN_SECRET=any_string
 ========== end points : provided in post man collection
+
+
+
+
+
+
+export type book = {
+    id?: number;
+    name: string;
+    author_name: string;
+    pagesNumber: number;
+    price: number
+}
+
+export type customer = {
+    id?: number;
+    firstName: string;
+    lastName: string;
+    password: Text;
+}
+export type customerOrder = {
+    id?: number;
+    status: string | "active";
+    quantity: number;
+    customer_id: number,
+    book_id: number
+}
