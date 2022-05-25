@@ -40,3 +40,16 @@ These are the notes from a meeting with the frontend developer that describe wha
 - user_id
 - status of order (active or complete)
 
+=======my .env
+POSTGRES_HOST="localhost"
+POSTGRES_DB=book_store
+POSTGRES_TEST_DB=book_store_test
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=adminpassword
+
+ENV=dev
+BCRYPT_PASSWORD=store-front-udacity-project
+SALT_ROUNDS=10
+
+TOKEN_SECRET=any_string
+========== end points : provided in post man collection

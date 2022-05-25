@@ -1,6 +1,7 @@
 import express from "express";
 import { Books, book } from '../models/book'
 import client from "../database";
+import { checkForExistence } from '../middleware/utils'
 
 const book = new Books()
 
@@ -8,7 +9,7 @@ const index = async (request: express.Request, response: express.Response): Prom
     try {
         const result = await book.index();
 
-        response.status(200);
+        // response.status(200);
         response.send(result)
 
     } catch (error: any) { throw new Error(error.toString()) }
@@ -16,6 +17,7 @@ const index = async (request: express.Request, response: express.Response): Prom
 
 const show = async (request: express.Request, response: express.Response): Promise<void> => {
     try {
+        // await checkForExistence(Number(request.params.id), 'book')
         const result = await book.show(request.params.id);
 
         response.status(200);

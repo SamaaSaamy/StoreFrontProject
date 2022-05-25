@@ -1,4 +1,9 @@
 import client from "../database";
+import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken'
+
+dotenv.config()
 
 export type customer = {
     id?: number;
@@ -38,10 +43,14 @@ export class customers {
     async create(b: customer): Promise<customer> {
         try {
             const sql = 'INSERT INTO customer (firstName, lastName, password) VALUES($1, $2, $3) RETURNING *'
+            const hash = bcrypt.hashSync(
+                String(b.password),
+                parseInt(String(process.env.SALT_ROUNDS))
+             );
             const conn = await client.connect()
 
             const result = await conn
-                .query(sql, [b.firstName, b.lastName, b.password])
+                .query(sql, [b.firstName, b.lastName, hash])
 
             const customer = result.rows[0]
 

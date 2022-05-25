@@ -1,16 +1,39 @@
 {
-    "dev": {
+  "dev": {
       "driver": "pg",
-      "host": "127.0.0.1",
-      "database": "book_store",
-      "user": "postgres",
-      "password": "adminpassword"
-    },
-    "test": {
-        "driver": "pg",
-        "host": "127.0.0.1",
-        "database": "book_store_test",
-        "user": "postgres",
-        "password": "adminpassword"
-    }
-  }
+      "user": {
+          "ENV": "POSTGRES_USER"
+      },
+      "password": {
+          "ENV": "POSTGRES_PASSWORD"
+      },
+      "host": {
+          "ENV": "POSTGRES_HOST"
+      },
+      "database": {
+          "ENV": "POSTGRES_DB"
+      },
+      "port": {
+          "ENV": "POSTGRES_PORT"
+      }
+  },
+  "test": {
+      "driver": "pg",
+      "user": {
+          "ENV": "POSTGRES_USER"
+      },
+      "password": {
+          "ENV": "POSTGRES_PASSWORD"
+      },
+      "host": {
+          "ENV": "POSTGRES_HOST"
+      },
+      "database": {
+          "ENV": "POSTGRES_TEST_DB"
+      },
+      "port": {
+          "ENV": "POSTGRES_PORT"
+      }
+  },
+  "sql-file": true
+}

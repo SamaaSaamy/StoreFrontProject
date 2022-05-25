@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import routes from "./routes/index";
-import client from './database';
+import appConf from './config/database.config'
 const app: express.Application = express()
 const address: string = "localhost:3000"
 
@@ -20,6 +20,6 @@ app.get('/', function (req: Request, res: Response) {
 
 app.listen(3000, async function () {
     console.log(`starting app on: ${address}`)
-    await client.connect();
-    console.log(`db connected`)
+    // await client.connect();
+    // console.log(`db connected`)
 })
