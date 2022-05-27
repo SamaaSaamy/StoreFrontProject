@@ -98,7 +98,15 @@ response: {
 #### Orders
 - Current Order by user (args: user id)[token required]
 GET
-http://localhost:3000/customerOrders/currentOrder
+http://localhost:3000/customerOrders/currentOrder/1
+1 is customer id
+response: {
+    "id": 1,
+    "status": "active",
+    "quantity": 1,
+    "customer_id": 1,
+    "book_id": 1
+}
 ===================================================================
 
 ## Data Shapes
