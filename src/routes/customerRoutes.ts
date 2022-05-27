@@ -1,12 +1,12 @@
 import express from "express";
 
-import { checkForExistence } from "../middleware/utils";
+import { verifyAuthToken } from "../middleware/auth";
 import { index, show, create } from "../controller/customerController";
 
 const customerRoutes = express.Router();
 
-customerRoutes.get("/index", index);
-customerRoutes.get("/show/:id", show);
-customerRoutes.post("/create", create);
+customerRoutes.get("/index",verifyAuthToken, index);
+customerRoutes.get("/show/:id",verifyAuthToken, show);
+customerRoutes.post("/create", verifyAuthToken, create);
 
 export default customerRoutes;

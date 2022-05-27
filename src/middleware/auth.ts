@@ -8,8 +8,8 @@ dotenv.config()
 const verifyAuthToken = (req: express.Request, res: express.Response, next: NextFunction) => {
     try {
         var authorizationHeader = req.headers.authorization as string
-        const token = authorizationHeader.split(' ')[1]
-        const decoded = jwt.verify(token, String(process.env.TOKEN_SECRET))
+        const decoded = jwt.verify(authorizationHeader, String('any_string'))
+        if(! decoded) throw new Error ("invalid")
 
         next()
     } catch (error: any) {
