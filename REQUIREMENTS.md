@@ -103,29 +103,13 @@ http://localhost:3000/customerOrders/newOrder
 
 ## Data Shapes
 #### book
-CREATE TABLE book(
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(150),
-  author_name  VARCHAR(150),
-  pagesNumber INTEGER,
-  price INTEGER,
-);
+CREATE TABLE book (id SERIAL PRIMARY  KEY, name VARCHAR(150), author_name VARCHAR(150), pagesNumber INTEGER, price INTEGER);
 
 #### customer
-CREATE TABLE customer(
-  id SERIAL PRIMARY KEY,
-  firstName VARCHAR(150),
-  lastName  VARCHAR(150),
-  password TEXT,
-);
+CREATE TABLE customer (id SERIAL PRIMARY KEY,firstName VARCHAR(150),lastName  VARCHAR(150),password TEXT);
 
 #### customerorder
-CREATE TABLE customerorder(
-  id SERIAL PRIMARY KEY,
-  status TEXT,
-  quantity  INTEGER,
-  customer_id  REFERENCES customer(id) INTEGER,
-  book_id REFERENCES book(id) INTEGER,
+CREATE TABLE customerorder(id SERIAL PRIMARY KEY,status TEXT,quantity  INTEGER, customer_id INTEGER REFERENCES customer (id), book_id INTEGER REFERENCES book (id)
 );
 
 
