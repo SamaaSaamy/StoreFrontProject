@@ -28,9 +28,9 @@ const customerOrder = new customerOrders()
 const currentOrder = async (request: express.Request, response: express.Response): Promise<void> => {
     try {
         // let customer = await checkForExistence(Number(request.params.id), 'customer')
-        const sql = 'SELECT * FROM customerorder WHERE customer_id=($1)'
+        const sql = 'SELECT * FROM customerorder WHERE customer_id=($1) AND status=($2)'
         const conn = await client.connect()
-        const result = await conn.query(sql, [request.params.id])
+        const result = await conn.query(sql, [request.params.id, "active"])
         conn.release()
 
         response.status(200);
