@@ -25,12 +25,14 @@ describe("Book Model", () => {
             name: 'Bridge to Terabithia',
             pagesNumber: 250,
             author_name: 'Katherine Paterson',
+            price: 40
         });
         expect(result).toEqual({
             id: 1,
             name: 'Bridge to Terabithia',
             pagesNumber: 250,
             author_name: 'Katherine Paterson',
+            price: 40
         });
     });
 
