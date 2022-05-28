@@ -7,6 +7,6 @@ const customerRoutes = express.Router();
 
 customerRoutes.get("/index",verifyAuthToken, index);
 customerRoutes.get("/show/:id",verifyAuthToken, show);
-customerRoutes.post("/create", verifyAuthToken, create);
+customerRoutes.post("/create", create);
 
 export default customerRoutes;
