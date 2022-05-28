@@ -37,7 +37,7 @@ create database book_store;
 
 Next, you need to run the database migrations:
 
-npm migrations up
+npm migrations up.... db-migrate up
 Running the application
 Use the following command to run the application in watch mode:
 
