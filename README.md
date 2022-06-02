@@ -46,7 +46,7 @@ Use the following command to run the application in using node:
 
 npm run start
 The application will run on http://localhost:3000/.
-
+data base is running on port 5432
 Running the unit tests
 Use the following command to run the unit tests:
 
