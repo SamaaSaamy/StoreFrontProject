@@ -123,6 +123,8 @@ CREATE TABLE customerorder(id SERIAL PRIMARY KEY,status TEXT,quantity  INTEGER, 
 
 
 
-
+TEST CASES
+create book, get all books, get a book by id
+create customer, get all customers, get a customer by id
 
 }

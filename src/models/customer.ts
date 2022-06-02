@@ -7,9 +7,9 @@ dotenv.config()
 
 export type customer = {
     id?: number;
-    firstName: string;
-    lastName: string;
-    password: Text;
+    firstname: string;
+    lastname: string;
+    password: string;
 }
 
 export class customers {
@@ -42,7 +42,7 @@ export class customers {
 
     async create(b: customer): Promise<customer> {
         try {
-            const sql = 'INSERT INTO customer (firstName, lastName, password) VALUES($1, $2, $3) RETURNING *'
+            const sql = 'INSERT INTO customer (firstname, lastname, password) VALUES($1, $2, $3) RETURNING *'
             const hash = bcrypt.hashSync(
                 String(b.password),
                 parseInt(String(process.env.SALT_ROUNDS))
@@ -50,7 +50,7 @@ export class customers {
             const conn = await client.connect()
 
             const result = await conn
-                .query(sql, [b.firstName, b.lastName, hash])
+                .query(sql, [b.firstname, b.lastname, hash])
 
             const customer = result.rows[0]
 

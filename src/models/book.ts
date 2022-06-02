@@ -4,7 +4,7 @@ export type book = {
     id?: number;
     name: string;
     author_name: string;
-    pagesNumber: number;
+    pagesnumber: number;
     price: number
 }
 
@@ -38,11 +38,11 @@ export class Books {
 
     async create(b: book): Promise<book> {
         try {
-            const sql = 'INSERT INTO book (name, author_name, pagesNumber, price) VALUES($1, $2, $3, $4) RETURNING *'
+            const sql = 'INSERT INTO book (name, author_name, pagesnumber, price) VALUES($1, $2, $3, $4) RETURNING *'
             const conn = await client.connect()
 
             const result = await conn
-                .query(sql, [b.name, b.author_name, b.pagesNumber, b.price])
+                .query(sql, [b.name, b.author_name, b.pagesnumber, b.price])
 
             const book = result.rows[0]
 

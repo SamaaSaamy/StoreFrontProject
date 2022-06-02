@@ -23,3 +23,5 @@ app.listen(3000, async function () {
     // await client.connect();
     // console.log(`db connected`)
 })
+
+export default app;

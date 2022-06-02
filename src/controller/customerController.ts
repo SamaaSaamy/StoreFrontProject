@@ -28,7 +28,7 @@ const create = async (request: express.Request, response: express.Response): Pro
     try {
         let data ={}
         const result = await customer.create(request.body.customer);
-        let payload = {'name':result.firstName, id:result.id}
+        let payload = {'name':result.firstname, id:result.id}
 
         let token = await jwt.sign(payload,'any_string')
         data = {result, token}
