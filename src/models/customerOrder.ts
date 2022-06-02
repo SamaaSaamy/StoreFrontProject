@@ -4,7 +4,7 @@ export type customerOrder = {
     id?: number;
     status: string | "active";
     quantity: number;
-    customer_id: number,
+    orders_id: number,
     book_id: number
 }
 
@@ -36,23 +36,24 @@ export class customerOrders {
         }
     }
 
-    async create(b: customerOrder): Promise<customerOrder> {
-        try {
-            console.log("b", b)
-            const sql = 'INSERT INTO customerOrder (quantity, customer_id, book_id) VALUES( $1, $2, $3) RETURNING *'
-            const conn = await client.connect()
-            const result = await conn
-                .query(sql, [b.quantity, b.customer_id, b.book_id])
+    // async create(b: customerOrder, orders_id: Number): Promise<customerOrder> {
+    //     try {
+    //         console.log("ffffffff", b.quantity, orders_id, b.book_id)
 
-            const customerOrder = result.rows[0]
+    //         const sql = 'INSERT INTO customerOrder (quantity,orders_id, book_id) VALUES( $1, $2, $3) RETURNING *'
+    //         const conn = await client.connect()
+    //         const result = await conn
+    //             .query(sql, [b.quantity, orders_id, b.book_id])
 
-            conn.release()
+    //         const customerOrder = result.rows[0]
 
-            return customerOrder
-        } catch (err) {
-            throw new Error(`Could not add new customerOrder. Error: ${err}`)
-        }
-    }
+    //         conn.release()
+
+    //         return customerOrder
+    //     } catch (err) {
+    //         throw new Error(`Could not add new customerOrder. Error: ${err}`)
+    //     }
+    // }
 
     async delete(id: string): Promise<customerOrder> {
         try {

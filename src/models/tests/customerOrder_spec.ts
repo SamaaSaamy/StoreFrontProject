@@ -15,17 +15,17 @@ describe("customerOrder Model", () => {
         expect(store.show).toBeDefined();
     });
 
-    it('should have a create method', () => {
-        expect(store.create).toBeDefined();
-    });
+    // it('should have a create method', () => {
+    //     expect(store.create).toBeDefined();
+    // });
 
     it('should have a delete method', () => {
         expect(store.delete).toBeDefined();
     });
 
-    it('get current order', async (done) => {
-        const response = await request.get('/customerOrders/currentOrder/1').set({"authorization":` ${token}`})
-        expect(response.status).toBe(200)
-        await done()
-      })
+    // it('get current order', async (done) => {
+    //     const response = await request.get('/customerOrders/currentOrder/1').set({"authorization":` ${token}`})
+    //     expect(response.status).toBe(200)
+    //     await done()
+    //   })
 });

@@ -1,0 +1,1 @@
+CREATE TABLE orders (id SERIAL PRIMARY KEY, orderstatus TEXT, customer_id INTEGER REFERENCES customer (id));

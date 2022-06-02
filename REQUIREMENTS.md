@@ -98,14 +98,12 @@ response: {
 #### Orders
 - Current Order by user (args: user id)[token required]
 GET
-http://localhost:3000/customerOrders/currentOrder/1
+http://localhost:3000/order/currentOrder/1
 1 is customer id
 response: {
-    "id": 1,
-    "status": "active",
-    "quantity": 1,
-    "customer_id": 1,
-    "book_id": 1
+    "id": 10,
+    "orderstatus": "active",
+    "customer_id": 36
 }
 ===================================================================
 
@@ -117,14 +115,15 @@ CREATE TABLE book (id SERIAL PRIMARY  KEY, name VARCHAR(150), author_name VARCHA
 CREATE TABLE customer (id SERIAL PRIMARY KEY,firstName VARCHAR(150),lastName  VARCHAR(150),password TEXT);
 
 #### customerorder
-CREATE TABLE customerorder(id SERIAL PRIMARY KEY,status TEXT,quantity  INTEGER, customer_id INTEGER REFERENCES customer (id), book_id INTEGER REFERENCES book (id)
-);
+CREATE TABLE customerorder (id SERIAL PRIMARY KEY,status TEXT,quantity  INTEGER, book_id INTEGER REFERENCES book (id), orders_id INTEGER REFERENCES orders (id));
 
+#### order
+CREATE TABLE orders (id SERIAL PRIMARY KEY, orderstatus TEXT, customer_id INTEGER REFERENCES customer (id));
 
 
 
 TEST CASES
 create book, get all books, get a book by id
 create customer, get all customers, get a customer by id
-
+get current order
 }
