@@ -68,5 +68,19 @@ export class customerOrders {
             throw new Error(`Could not delete customerOrder ${id}. Error: ${err}`)
         }
     }
+    async currentOrder(id: string): Promise<customerOrder[]> {
+        try {
+            const sql = 'SELECT * FROM customerOrder WHERE orders_id=($1)'
+            const conn = await client.connect()
+            const result = await conn.query(sql, [id])
 
+            const order = result.rows
+
+            conn.release()
+
+            return order
+        } catch (err) {
+            throw new Error(`Could not find custommer order details. Error: ${err}`)
+        }
+    }
 }

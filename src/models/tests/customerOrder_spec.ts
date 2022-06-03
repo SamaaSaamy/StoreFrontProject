@@ -23,9 +23,10 @@ describe("customerOrder Model", () => {
         expect(store.delete).toBeDefined();
     });
 
-    // it('get current order', async (done) => {
-    //     const response = await request.get('/customerOrders/currentOrder/1').set({"authorization":` ${token}`})
-    //     expect(response.status).toBe(200)
-    //     await done()
-    //   })
+    // this is the only end point i have in customer orders 
+    it('get current order', async (done) => {
+        const response = await request.get('/customerOrders/currentOrder/10').set({ "authorization": ` ${token}` })
+        expect(response.status).toBe(200)
+        await done()
+    })
 });

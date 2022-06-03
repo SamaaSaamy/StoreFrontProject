@@ -27,14 +27,10 @@ const customerOrder = new customerOrders()
 
 const currentOrder = async (request: express.Request, response: express.Response): Promise<void> => {
     try {
-        // let customer = await checkForExistence(Number(request.params.id), 'customer')
-        const sql = 'SELECT * FROM customerorder WHERE customer_id=($1) AND status=($2)'
-        const conn = await client.connect()
-        const result = await conn.query(sql, [request.params.id, "active"])
-        conn.release()
+        const result = await customerOrder.currentOrder(request.params.id);
 
         response.status(200);
-        response.send(result.rows[0])
+        response.send(result)
 
     } catch (error: any) { throw new Error(error.toString()) }
 };

@@ -48,12 +48,12 @@ describe("customers Model", () => {
         expect(result.lastname).toBe("samy");
       });
 
-      // it('gets the test endpoint', async (done) => {
-      //   const response = await request.post('/customer/create').send( {"firstname": "samaa", "lastname": "samy", "password": "12345678"})
-      
-      //   expect(response.status).toBe(200)
-      //   await done()
-      // })
+      it('create customer', async (done) => {
+        const response = await (await request.post('/customer/create').send({"customer": {"firstName": "customer first name", "lastName": "customer last name", "password": "12345678"}}))
+        expect(response.status).toBe(200)
+        await done()
+      })
+
       it('show one customers', async (done) => {
         const response = await request.get('/customer/show/1').set({"authorization":`${token}`})
         expect(response.status).toBe(200)

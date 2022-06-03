@@ -8,7 +8,7 @@ const customerOrdersRoutes = express.Router();
 
 
 // customerOrdersRoutes.post("/newOrder", createOrder);
-// customerOrdersRoutes.get("/currentOrder/:id", verifyAuthToken, currentOrder);
+customerOrdersRoutes.get("/currentOrder/:id", verifyAuthToken, currentOrder);
 
 
 export default customerOrdersRoutes;

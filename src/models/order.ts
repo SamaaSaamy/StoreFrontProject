@@ -11,7 +11,7 @@ export class theorders {
     async index(): Promise<orders[]> {
         try {
             const conn = await client.connect()
-            const sql = 'SELECT * FROM order'
+            const sql = 'SELECT * FROM orders'
             const result = await conn.query(sql)
             conn.release()
             return result.rows
@@ -24,7 +24,7 @@ export class theorders {
 
     async show(id: string): Promise<orders> {
         try {
-            const sql = 'SELECT * FROM order WHERE id=($1)'
+            const sql = 'SELECT * FROM orders WHERE id=($1)'
             const conn = await client.connect()
             const result = await conn.query(sql, [id])
             conn.release()
@@ -53,7 +53,7 @@ export class theorders {
 
     async delete(id: string): Promise<orders> {
         try {
-            const sql = 'DELETE FROM order WHERE id=($1)'
+            const sql = 'DELETE FROM orders WHERE id=($1)'
             const conn = await client.connect()
             const result = await conn.query(sql, [id])
             const order = result.rows[0]
