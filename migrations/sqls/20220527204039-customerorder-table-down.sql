@@ -1,1 +1,1 @@
-DROP TABLE customerorder CASCADE;
+DROP TABLE IF EXISTS customerorder CASCADE;

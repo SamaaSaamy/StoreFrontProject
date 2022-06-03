@@ -1,1 +1,1 @@
-CREATE TABLE orders (id SERIAL PRIMARY KEY, orderstatus TEXT, customer_id INTEGER REFERENCES customer (id));
+CREATE TABLE IF NOT EXISTS orders (id SERIAL PRIMARY KEY, orderstatus TEXT, customer_id INTEGER REFERENCES customer (id));

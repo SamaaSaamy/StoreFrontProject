@@ -1,1 +1,1 @@
-CREATE TABLE customer (id SERIAL PRIMARY KEY,firstName VARCHAR(150),lastName  VARCHAR(150),password TEXT);
+CREATE TABLE IF NOT EXISTS customer (id SERIAL PRIMARY KEY,firstName VARCHAR(150),lastName  VARCHAR(150),password TEXT);
